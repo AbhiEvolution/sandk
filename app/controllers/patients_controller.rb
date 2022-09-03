@@ -2,7 +2,7 @@ class PatientsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @pagy, @patients = pagy(Patient.all, items: 1)
+    @pagy, @patients = pagy(Patient.all, items: 10)
   end
 
   def new
