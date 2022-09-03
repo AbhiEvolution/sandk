@@ -1,0 +1,26 @@
+<div class="row d-flex justify-content-center my-3">
+  <div class="col-md-6">
+    <div class="card card border-treatment shadow-sm p-3 mb-5 bg-body">
+      <div class="card-body fs-5 border border-3 text-center">
+        <span class="mx-3">
+          <strong>Treatment:</strong>
+          <%= treatment.typeoftreatement %>
+        </span>
+        <span class="mx-3">
+          <strong>Teeth:</strong>
+          <%= treatment.teeth %>
+        </span>
+        <span class="mx-3">
+          <strong>Next Appointment:</strong>
+          <%= treatment.nextappointment %>
+        </span>
+      </div>
+      <div class="card-body fs-5 border border-3 mt-2">
+        <p>
+          <strong>Medicine:</strong>
+          <%= treatment.medicine %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

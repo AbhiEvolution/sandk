@@ -1,0 +1,35 @@
+<div class="row d-flex justify-content-center my-3">
+  <div class="col-md-6">
+    <div class="card card border-treatment shadow-sm p-3 mb-5 bg-body">
+      <div class="card-body text-center fs-5">
+        <p>
+          <strong>Treatment:</strong>
+          <%=@treatment.typeoftreatement %>
+          <%=@treatment.teeth %>
+          <%=@treatment.medicine %>
+          <%=@treatment.nextappointment %>
+        </p>
+      </div>
+      <div class="card-footer">
+        <span class="d-flex justify-content-center">
+          <%= link_to patient_treatment_path(@patient,@treatment), class: 'btn btn-outline-info mx-5' do %>
+            <i class="fa-solid fa-eye"></i>
+            View
+          <%end%>
+          <%= link_to edit_patient_treatment_path(@patient,@treatment), class: 'btn btn-outline-warning mx-5' do %>
+            <i class="fas fa-edit"></i>
+            Edit
+          <%end%>
+          <%= button_to patient_treatment_path(@patient,@treatment),  method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger mx-5' do %>
+            <i class="fa-solid fa-trash"></i>
+            Delete
+          <%end%>
+        </span>
+      </div>
+      <div class="card-footer d-flex justify-content-center  px-2">
+        <span class="badge rounded-pill bg-info text-dark mx-2">Created <%=time_ago_in_words @treatment.created_at %> ago</span>
+        <span class="badge rounded-pill bg-info text-dark mx-2"> updated <%=time_ago_in_words @treatment.updated_at %> ago</span>
+      </div>
+    </div>
+  </div>
+</div>

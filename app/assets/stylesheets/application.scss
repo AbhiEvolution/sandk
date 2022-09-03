@@ -1,0 +1,17 @@
+@import 'bootstrap';
+.chair {
+    background-image: url('chair.jpg');
+    height: 100%;
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+span a {
+    padding: 0.3rem;
+    margin: 0.1rem;
+    border: 0.1rem solid black;
+}
