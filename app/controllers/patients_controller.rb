@@ -1,8 +1,10 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_patient, only: [:show, :edit, :update]
+   before_action :set_user,only: [ :show, :edit, :update]
 
   def index
-    @pagy, @patients = pagy(Patient.all, items: 10)
+    @pagy, @patients = pagy(current_user.patients.all, items: 10)
   end
 
   def new
@@ -10,7 +12,6 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @patient = Patient.find(params[:id])
   end
 
   def create
@@ -24,11 +25,9 @@ class PatientsController < ApplicationController
   end
 
   def edit
-    @patient = Patient.find(params[:id])
   end
 
   def update
-    @patient = Patient.find(params[:id])
     if @patient.update(patient_params)
       flash[:notice] = "patient was updated successfully!"
       redirect_to @patient
@@ -41,5 +40,16 @@ class PatientsController < ApplicationController
 
   def patient_params
     params.require(:patient).permit(:name, :age, :address, :phone,:deposite,:balance, :user_id)
+  end
+  
+    def set_patient
+    @patient= Patient.find(params[:id])
+  end
+
+  def set_user
+    if (current_user.id != @patient.user.id) 
+      flash[:alert] = "You are not able to perform this action."
+      redirect_to patients_path
+    end
   end
 end

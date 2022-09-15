@@ -1,15 +1,19 @@
-<div class="container border border-3 py-2 bg-secondary">
+<div class="container-fluid border-3 py-2 bg-secondary">
   <div class="d-flex justify-content-center">
-    <span class="btn btn-warning mx-2">Name:<%=@patient.name %></span>
-    <span class="btn btn-info mx-2">Age:<%=@patient.age %></span>
-    <span class="btn btn-info mx-2">Address:<%=@patient.address %></span>
-    <span class="btn btn-info mx-2">Phone:<%=@patient.phone %></span>
-    <span class="btn btn-info mx-2">Deposite:<%=@patient.deposite %></span>
-    <span class="btn btn-info mx-2">Balance:<%=@patient.balance %></span>
+    <span class="btn btn-warning mx-2">Name:<%= @patient.name %></span>
+    <span class="btn btn-info mx-2">Age:<%= @patient.age %></span>
+    <span class="btn btn-info mx-2">Address:<%= @patient.address %></span>
+    <span class="btn btn-info mx-2">Phone:<%= @patient.phone %></span>
+    <span class="btn btn-info mx-2">Deposite:<%= @patient.deposite %></span>
+    <span class="btn btn-info mx-2">Balance:<%= @patient.balance %></span>
     <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#add-treatment">
       Add treatment
     </button>
-    <%= render 'patients/addpayment' %>
+    <%= render "patients/addpayment" %>
   </div>
 </div>
-<%= render 'patients/treatment' %>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <%= render "patients/treatment" %>
+  </div>
+</div>
