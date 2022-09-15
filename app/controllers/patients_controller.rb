@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
    before_action :set_user,only: [ :show, :edit, :update]
 
   def index
-    @pagy, @patients = pagy(current_user.patients.all, items: 10)
+    @pagy, @patients = pagy(current_user.patients, items: 10)
   end
 
   def new
