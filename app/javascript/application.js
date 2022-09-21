@@ -7,3 +7,7 @@ import "bootstrap"
 import "@popperjs/core"
 import Rails from 'rails-ujs';
 Rails.start();
+import "@hotwired/turbo-rails"
+import jquery from "jquery"
+window.jQuery = jquery
+window.$ = jquery

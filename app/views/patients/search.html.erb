@@ -1,0 +1,40 @@
+<h1 class="text-center">Search Result</h1>
+<%#=@patients.inspect%>
+<div class="container">
+    <table class="table table-striped table-bordered border-dark">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">
+                    <div class="text-center border-bottom border-3 border-dark">payment</div>
+                    <div class="text-center">
+                        <span class="border-end border-3 border-dark px-2 ">Deposite</span>
+                        <span class="px-2">Balance</span>
+                    </div>
+                </th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%@patients.each do |patient| %>
+            <tr>
+                <th scope="row"><%= patient.name %></th>
+                <td><%= patient.age %></td>
+                <td><%= patient.address %></td>
+                <td><%= patient.phone %></td>
+                <td>
+                    <div class="text-center">
+                        <span class="border-end border-3 border-dark px-2 "><%= patient.deposite %></span>
+                        <span class="px-2"><%= patient.balance %></span>
+                    </div>
+                </td>
+                <td><%= link_to "Show this patient",patient  %> |
+                    <%=link_to "Edit this patient", edit_patient_path(patient)%></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

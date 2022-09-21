@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :patients do
     resources :treatments
   end
+  get 'search',  to: 'patients#search'
 end

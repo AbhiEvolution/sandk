@@ -1,10 +1,18 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_patient, only: [:show, :edit, :update]
-   before_action :set_user,only: [ :show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def index
     @pagy, @patients = pagy(current_user.patients, items: 10)
+  end
+
+  def search
+    # Patient.where("patients.name LIKE ?", ["%#{a}%"])
+    #  @patients=Patient.where("patients.name LIKE ?", "%"  + params[:q] +  "%")
+    @query = params[:query]
+    @patients=Patient.where("patients.name LIKE ?",["%#{@query}%"])
+    # render "index"
   end
 
   def new
@@ -39,15 +47,15 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :age, :address, :phone,:deposite,:balance, :user_id)
+    params.require(:patient).permit(:name, :age, :address, :phone, :deposite, :balance, :user_id)
   end
-  
-    def set_patient
-    @patient= Patient.find(params[:id])
+
+  def set_patient
+    @patient = Patient.find(params[:id])
   end
 
   def set_user
-    if (current_user.id != @patient.user.id) 
+    if (current_user.id != @patient.user.id)
       flash[:alert] = "You are not able to perform this action."
       redirect_to patients_path
     end
