@@ -1,13 +1,13 @@
 <div class="container chair mt-5">
   <div class="row">
     <div class="d-flex justify-content-center my-2 ">
-      <%= link_to new_patient_path, class:"btn btn-dark" do %>
+      <%= link_to new_patient_path, class:"btn  bg-primary-gradient  text-color-blue" do %>
         Add New Patient
       <%end%>
     </div>
     <% unless user_signed_in? %>
       <div class="d-flex justify-content-center ">
-        <%= link_to "Sign up!", new_user_registration_path, class:"btn btn-dark" %>
+        <%= link_to "Sign up!", new_user_registration_path, class:"btn  bg-primary-gradient  text-color-blue" %>
       </div>
     <%end%>
   </div>

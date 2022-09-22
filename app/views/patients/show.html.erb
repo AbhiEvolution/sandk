@@ -1,4 +1,4 @@
-<div class="container-fluid border-3 py-2 bg-secondary">
+<div class="container-fluid border-3 py-2  bg-primary-gradient">
   <div class="d-flex justify-content-center">
     <span class="btn btn-warning mx-2">Name:<%= @patient.name %></span>
     <span class="btn btn-info mx-2">Age:<%= @patient.age %></span>
@@ -6,7 +6,7 @@
     <span class="btn btn-info mx-2">Phone:<%= @patient.phone %></span>
     <span class="btn btn-info mx-2">Deposite:<%= @patient.deposite %></span>
     <span class="btn btn-info mx-2">Balance:<%= @patient.balance %></span>
-   <%=link_to "Edit this patient", edit_patient_path(@patient), class:"btn btn-danger mx-2"%>
+    <%=link_to "Edit this patient", edit_patient_path(@patient), class:"btn btn-danger mx-2"%>
     <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#add-treatment">
       Add treatment
     </button>
@@ -14,7 +14,5 @@
   </div>
 </div>
 <div class="container">
-  <div class="d-flex justify-content-center">
-    <%= render "patients/treatment" %>
-  </div>
+  <%= render "patients/treatment" %>
 </div>
