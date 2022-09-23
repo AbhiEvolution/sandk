@@ -1,6 +1,6 @@
 <div class="container">
-  <h1 class="text-center">Edit record of <%=@patient.name%></h1>
-  <%= form_with model: [ @patient, @patient.treatments.build ] do |form| %>
+  <h1 class="text-center">New Record  <%#=@patient.name%></h1>
+  <%= form_with model: @treatments do |form| %>
     <div>
       <%= form.label :type_of_treatment %><br>
       <%= form.text_field :typeoftreatement,class: 'form-control shadow-lg' %>

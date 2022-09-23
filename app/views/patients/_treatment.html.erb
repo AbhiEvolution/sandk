@@ -10,9 +10,8 @@
       </div>
       <div class="modal-body">
         <%= form_with model: [ @patient, @patient.treatments.build ] do |form| %>
-          <div>
-            <%= form.label :type_of_treatment %><br>
-            <%= form.text_field :typeoftreatement,class: 'form-control shadow-lg' %>
+          <div class="">
+            <%= form.select :typeoftreatement, [ 'RCT','Extraction','Scaling','Crown/Bridge', ], :prompt => 'Type of treatement', :class=>'form-select' %>
           </div>
           <br />
           <div>
@@ -27,7 +26,7 @@
           <br />
           <div>
             <%= form.label :next_appointment %><br>
-            <%= form.text_field :nextappointment,class: 'form-control shadow-lg' %>
+            <%= form.date_field :nextappointment,class: 'form-control shadow-lg' %>
           </div>
           <br />
           <p>

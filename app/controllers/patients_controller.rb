@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_patient, only: [:show, :edit, :update]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_patient, only: [:show, :edit, :update,:destroy]
+  before_action :set_user, only: [:show, :edit, :update,:destroy]
 
   def index
     @pagy, @patients = pagy(current_user.patients, items: 10)
@@ -33,6 +33,12 @@ class PatientsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @patient.destroy
+    flash[:notice] = "patient was destroyed successfully!"
+    redirect_to patients_path
   end
 
   def update

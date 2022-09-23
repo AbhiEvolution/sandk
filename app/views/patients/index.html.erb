@@ -33,7 +33,8 @@
               <span class="px-2"><%= patient.balance %></span>
             </div>
           </td>
-          <td><%= link_to "Show this patient",patient  %> | <%=link_to "Edit this patient", edit_patient_path(patient)%></td>
+          <td><%= link_to "Show",patient  %> | <%=link_to "Edit ", edit_patient_path(patient)%> | 
+                          <%= link_to "Delete",patient_path(patient), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
