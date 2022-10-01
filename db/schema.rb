@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_03_173826) do
     t.string "typeoftreatement"
     t.string "teeth"
     t.text "medicine"
-    t.string "nextappointment"
+    t.date "nextappointment"
     t.integer "patient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

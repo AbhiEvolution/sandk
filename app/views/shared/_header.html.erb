@@ -5,15 +5,14 @@
     <div class="container-fluid">
       <%= link_to root_path,class:"navbar-brand btn btn-outline-light rounded-pill text-color-blue" do%>
       <i class="fa-solid fa-tooth"></i>
-       S & K Dental and  smile care center 
       <% end%>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
-          <%= link_to "All Patient", patients_path, class: "nav-link btn btn-outline-light rounded-pill text-color-blue mx-2"%>
-          <%= link_to "Add New Patient", new_patient_path, class: "nav-link btn btn-outline-light rounded-pill text-color-blue" %>
+          <%= link_to "All Patient", patients_path, class: "nav-link btn btn-outline-light rounded-pill text-color-blue"%>
+          <%= link_to "Add New Patient", new_patient_path, class: "nav-link btn btn-outline-light rounded-pill text-color-blue ms-2" %>
         </ul>
         <ul class="navbar-nav ms-auto">
           <% if current_user %>

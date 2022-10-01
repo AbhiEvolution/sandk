@@ -1,26 +1,50 @@
 <div class="row my-3">
-  <div class="col">
+  <div class="col ">
+    <%=link_to patient_treatment_path(@patient,  treatment) do%>
     <div class="card  shadow-sm p-3  bg-body">
       <div class="card-body fs-5 border border-3 text-center  bg-primary-gradient">
-        <span class="mx-3">
+        <span class="mx-3 text-dark" style="text-decoration: none;">
           <strong>Treatment:</strong>
           <%= treatment.typeoftreatement %>
         </span>
-        <span class="mx-3">
+        <span class="mx-3 text-dark">
           <strong>Teeth:</strong>
           <%= treatment.teeth %>
         </span>
-        <span class="mx-3">
+        <span class="mx-3 text-dark">
           <strong>Next Appointment:</strong>
           <%= treatment.nextappointment %>
         </span>
       </div>
-      <div class="card-body fs-5 border border-3 mt-2">
-        <p>
-          <strong>Medicine:</strong>
-          <%= treatment.medicine %>
-        </p>
+      <div class="card-body fs-5 border border-3 mt-2 text-dark">
+        <strong>Medicine:</strong>
+        <%= treatment.medicine %>
+      </div>
+      <%end%>
+      <div class="card-footer fs-6 border border-3 mt-2">
+        <div class="row">
+          <div class="col-10">
+            <strong class="text-dark">Created at:</strong>
+            <span class="text-dark"><%=time_ago_in_words(treatment.created_at )%></span>
+          </div>
+          <div class="col-1">
+            <%= link_to edit_patient_treatment_path(@patient,treatment), class: 'border p-1 rounded border-warning bg-warning text-dark' do %>
+            <i class="fas fa-edit"></i>
+            <%end%>
+          </div>
+          <div class="col-1">
+            <%= button_to patient_treatment_path(@patient,treatment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'border  rounded border-danger bg-danger text-dark' do %>
+            <i class="fa-solid fa-trash"></i>
+            <%end%>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<style>
+  a:link {
+    text-decoration: none !important;
+  }
+</style>

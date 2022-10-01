@@ -4,7 +4,7 @@ class CreateTreatments < ActiveRecord::Migration[7.0]
       t.string :typeoftreatement
       t.string :teeth
       t.text :medicine
-      t.string :nextappointment
+      t.date :nextappointment
       t.references :patient, null: false, foreign_key: true
       t.timestamps
     end

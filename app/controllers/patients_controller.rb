@@ -20,6 +20,7 @@ class PatientsController < ApplicationController
   end
 
   def show
+    @treatment = @patient.treatments.order("created_at ASC")
   end
 
   def create

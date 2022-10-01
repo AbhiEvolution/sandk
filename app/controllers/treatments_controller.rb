@@ -5,6 +5,7 @@ class TreatmentsController < ApplicationController
   end
 
   def new
+    @patient=Patient.find( params[:patient_id] )
     @treatment = Treatment.new
   end
 
@@ -35,13 +36,13 @@ class TreatmentsController < ApplicationController
     end
   end
 
-#   def destroy
-#     @patient = Patient.find(params[:patient_id])
-#     treatment = Treatreatment.find(params[:id])
-#     treatment.destroy
-#     flash[:notice] = "patient was deleted successfully!"
-#     redirect_to patient_path(@patient)
-#   end
+  def destroy
+    patient = Patient.find(params[:patient_id])
+    @treatment = Treatment.find(params[:id])
+    @treatment.destroy
+    flash[:notice] = "Appointment was deleted successfully!"
+    redirect_to patient_path(patient)
+  end
 
   private
 
