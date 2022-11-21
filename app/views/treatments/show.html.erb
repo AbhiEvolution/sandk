@@ -8,8 +8,11 @@
         </span>
         <span class="mx-3 text-dark">
           <strong>Teeth:</strong>
+          <%= @treatment.quadrant %>
           <%= @treatment.teeth %>
         </span>
+        <strong>Deposite:</strong>
+        Rs.<%=@treatment.deposite%>
         <span class="mx-3 text-dark">
           <strong>Next Appointment:</strong>
           <%= @treatment.nextappointment %>
@@ -18,6 +21,10 @@
       <div class="card-body fs-5 border border-3 mt-2 text-dark">
         <strong>Medicine:</strong>
         <%= @treatment.medicine %>
+      </div>
+      <div>
+        <strong class="text-dark">Date:</strong>
+        <span class="text-dark"><%=time_ago_in_words(@treatment.created_at )%></span>
       </div>
       <%= link_to "Back", patient_path(@patient), class:"btn btn-secondary mt-3 px-3"%>
     </div>

@@ -8,13 +8,13 @@
   </tr>
   <tr>
     <td>
-      <span class="badge text-bg-warning fs-6"> Cost:<%= @patient.cost %></span>
+      <span class="badge text-bg-warning fs-6"> Cost: Rs.<%= @patient.cost %></span>
     </td>
     <td>
-      <span class="badge text-bg-info fs-6"> Deposite:<%= @patient.total_deposite %></span>
+      <span class="badge text-bg-info fs-6"> Deposite: Rs.<%= @patient.total_deposite %></span>
     </td>
     <td>
-      <span class="badge text-bg-info fs-6"> Balance:<%= @patient.total_balance(@patient) %></span>
+      <span class="badge text-bg-info fs-6"> Balance: Rs.<%= @patient.total_balance(@patient) %></span>
     </td>
     <td>
       <%= link_to "Add Appointment", new_patient_treatment_path(@patient), class:"badge text-bg-info fs-6"  %>

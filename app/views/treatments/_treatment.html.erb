@@ -14,7 +14,7 @@
         </div>
         <div class="text-dark">
           <strong>Deposite:</strong>
-          <span class="badge bg-info"><%=treatment.deposite%></span>
+          <span class="badge bg-info">Rs. <%=treatment.deposite%></span>
         </div>
         <div class="text-dark">
           <strong>Next Appointment:</strong>
@@ -29,7 +29,7 @@
       <hr>
       <div class="d-flex justify-content-between">
         <div>
-          <strong class="text-dark">Created at:</strong>
+          <strong class="text-dark">Date:</strong>
           <span class="text-dark"><%=time_ago_in_words(treatment.created_at )%></span>
         </div>
         <div>
@@ -45,7 +45,6 @@
     </div>
   </div>
 </div>
-    <%#= treatment.total( treatment) %>
 <style>
   a:link {
     text-decoration: none !important;

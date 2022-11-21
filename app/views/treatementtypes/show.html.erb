@@ -3,8 +3,8 @@
  <h1 class="pt-5"> <%= render @treatementtype %></h1>
 
   <div>
-    <%= link_to "Edit this treatementtype", edit_treatementtype_path(@treatementtype) ,class:'btn btn-warning'%> |
-    <%= link_to "Back to treatementtypes", treatementtypes_path, class:'btn btn-secondary' %> |  
-    <%= link_to "Destroy this treatementtype", @treatementtype, method: :delete, data: { confirm: 'Are you sure?' }  , class:'btn btn-danger'%>
+    <%= link_to "Edit", edit_treatementtype_path(@treatementtype) ,class:'btn btn-warning'%> |
+    <%= link_to "Back", treatementtypes_path, class:'btn btn-secondary' %> |  
+    <%= link_to "Delete", @treatementtype, method: :delete, data: { confirm: 'Are you sure?' }  , class:'btn btn-danger'%>
   </div>
 </div>
