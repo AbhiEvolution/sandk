@@ -1,14 +1,20 @@
 <p style="color: green"><%= notice %></p>
+<div class="container">
+  <h1 class="text-center">Treatementtypes</h1>
 
-<h1>Treatementtypes</h1>
-
-<div id="treatementtypes">
-  <% @treatementtypes.each do |treatementtype| %>
-    <%= render treatementtype %>
-    <p>
-      <%= link_to "Show this treatementtype", treatementtype %>
-    </p>
-  <% end %>
+  <div id="treatementtypes">
+    <table class="table">
+      <tr>
+        <td>Name </td>
+        <td> Action</td>
+      </tr>
+      <% @treatementtypes.each do |treatementtype| %>
+      <tr>
+        <td><%= render treatementtype %></td>
+        <td> <%= link_to "Show", treatementtype %></td>
+        <% end %>
+      </tr>
+  </div>
 </div>
-
-<%= link_to "New treatementtype", new_treatementtype_path %>
+<%= link_to "New treatementtype", new_treatementtype_path, class:'btn btn-secondary' %>
+</div>

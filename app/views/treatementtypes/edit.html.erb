@@ -1,10 +1,12 @@
-<h1>Editing treatementtype</h1>
+<div class="container">
+  <h1 class="text-center">Editing treatementtype</h1>
 
-<%= render "form", treatementtype: @treatementtype %>
+  <%= render "form", treatementtype: @treatementtype %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this treatementtype", @treatementtype %> |
-  <%= link_to "Back to treatementtypes", treatementtypes_path %>
+  <div>
+    <%= link_to "Show this treatementtype", @treatementtype, class:"btn btn-info" %> |
+    <%= link_to "Back to treatementtypes", treatementtypes_path,class:'btn btn-secondary' %>
+  </div>
 </div>
