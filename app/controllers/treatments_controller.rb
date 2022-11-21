@@ -5,7 +5,7 @@ class TreatmentsController < ApplicationController
   end
 
   def new
-    @patient=Patient.find( params[:patient_id] )
+    @patient = Patient.find(params[:patient_id])
     @treatment = Treatment.new
   end
 
@@ -47,6 +47,6 @@ class TreatmentsController < ApplicationController
   private
 
   def treatment_params
-    params.require(:treatment).permit(:typeoftreatement, :teeth, :medicine, :nextappointment)
+    params.require(:treatment).permit(:typeoftreatement, :quadrant, :teeth, :medicine, :nextappointment, :deposite)
   end
 end

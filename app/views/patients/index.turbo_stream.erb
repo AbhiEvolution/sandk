@@ -1,0 +1,8 @@
+<%= turbo_stream.append "patients" do %>
+   <%= render partial: 'patient', collection: @patients %>
+ <% end %>
+<% if @pagy.next.present? %>
+  <%= turbo_stream.replace "pagination" do %>
+    <%= turbo_frame_tag "pagination", src: patients_path(page: @pagy.next, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+<% end %>

@@ -1,36 +1,33 @@
-<div class="container-fluid border-3 py-2  bg-primary-gradient">
-  <div class="row">
-    <div class="col btn btn-warning mx-2">
-      Name:<%= @patient.name %>
-    </div>
-    <div class="col btn btn-info mx-2">
-      Age:<%= @patient.age %>
-    </div>
-    <div class="col  btn btn-info mx-2">
-      Address:<%= @patient.address %>
-    </div>
-    <div class="col  btn btn-info mx-2">
-      Phone:<%= @patient.phone %>
-    </div>
-    <div class="col btn btn-info mx-2">
-      Deposite:<%= @patient.deposite %>
-    </div>
-    <div class="col btn btn-info mx-2">
-      Balance:<%= @patient.balance %>
-    </div>
-    <div class="col text-center">
-      <%= link_to "Add Appointment", new_patient_treatment_path(@patient), class:"btn btn-success"  %>
-    </div>
-    <div class="col">
-      <%= render "patients/addpayment" %>
-    </div>
-  </div>
+<div class="container-fluid border-3 py-2  bg-primary-gradient"">
+<table  class=" table text-center">
+  <tr>
+    <td><span class="badge text-bg-warning fs-6"> Name:<%= @patient.name %></span></td>
+    <td><span class="badge text-bg-info fs-6">Age:<%= @patient.age %></span></td>
+    <td><span class="badge text-bg-info fs-6">Address:<%= @patient.address %></span></td>
+    <td><span class="badge text-bg-info fs-6">Phone:<%= @patient.phone %></span></td>
+  </tr>
+  <tr>
+    <td>
+      <span class="badge text-bg-warning fs-6"> Cost:<%= @patient.cost %></span>
+    </td>
+    <td>
+      <span class="badge text-bg-info fs-6"> Deposite:<%= @patient.total_deposite %></span>
+    </td>
+    <td>
+      <span class="badge text-bg-info fs-6"> Balance:<%= @patient.total_balance(@patient) %></span>
+    </td>
+    <td>
+      <%= link_to "Add Appointment", new_patient_treatment_path(@patient), class:"badge text-bg-info fs-6"  %>
+    </td>
+  </tr>
+  </table>
 </div>
-  <div class="bg-primary-gradient mb-3 mt-1">
-    <h1 class="text-center py-4  text-color-blue">Treatement</h1>
-  </div>
+<div class="bg-primary-gradient mb-3 mt-1">
+  <h1 class="text-center py-4  text-color-blue">Treatement</h1>
+</div>
 <div class="container">
   <%= link_to "Back to Patients", patients_path, class:"btn btn-secondary" %>
+  <%= link_to "Add Treatement Type",new_treatementtype_path, class:"btn btn-secondary"%>
   <% @patient.treatments.each do |treatment| %>
   <%= render partial: 'treatments/treatment', locals: {treatment: treatment}%>
   <%end%>

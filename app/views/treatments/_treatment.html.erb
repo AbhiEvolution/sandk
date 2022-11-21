@@ -1,48 +1,51 @@
 <div class="row my-3">
-  <div class="col ">
+  <div class="col">
     <%=link_to patient_treatment_path(@patient,  treatment) do%>
-    <div class="card  shadow-sm p-3  bg-body">
-      <div class="card-body fs-5 border border-3 text-center  bg-primary-gradient">
-        <span class="mx-3 text-dark" style="text-decoration: none;">
+    <div class="card shadow-sm p-3  bg-body border border-3">
+      <div class="d-flex justify-content-between  border border-3 p-2 rounded ">
+        <div class="text-dark">
           <strong>Treatment:</strong>
-          <%= treatment.typeoftreatement %>
-        </span>
-        <span class="mx-3 text-dark">
+          <span class="badge bg-success"> <%= treatment.typeoftreatement %><span>
+        </div>
+        <div class="text-dark">
           <strong>Teeth:</strong>
-          <%= treatment.teeth %>
-        </span>
-        <span class="mx-3 text-dark">
+          <span class="badge bg-info"> <%= treatment.quadrant %></span>
+          <span class="badge bg-info"> <%= treatment.teeth %></span>
+        </div>
+        <div class="text-dark">
+          <strong>Deposite:</strong>
+          <span class="badge bg-info"><%=treatment.deposite%></span>
+        </div>
+        <div class="text-dark">
           <strong>Next Appointment:</strong>
           <%= treatment.nextappointment %>
-        </span>
+        </div>
       </div>
-      <div class="card-body fs-5 border border-3 mt-2 text-dark">
+      <div class="text-dark border border-3 p-2 rounded mt-3">
         <strong>Medicine:</strong>
         <%= treatment.medicine %>
       </div>
       <%end%>
-      <div class="card-footer fs-6 border border-3 mt-2">
-        <div class="row">
-          <div class="col-10">
-            <strong class="text-dark">Created at:</strong>
-            <span class="text-dark"><%=time_ago_in_words(treatment.created_at )%></span>
-          </div>
-          <div class="col-1">
-            <%= link_to edit_patient_treatment_path(@patient,treatment), class: 'border p-1 rounded border-warning bg-warning text-dark' do %>
-            <i class="fas fa-edit"></i>
-            <%end%>
-          </div>
-          <div class="col-1">
-            <%= button_to patient_treatment_path(@patient,treatment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'border  rounded border-danger bg-danger text-dark' do %>
-            <i class="fa-solid fa-trash"></i>
-            <%end%>
-          </div>
+      <hr>
+      <div class="d-flex justify-content-between">
+        <div>
+          <strong class="text-dark">Created at:</strong>
+          <span class="text-dark"><%=time_ago_in_words(treatment.created_at )%></span>
+        </div>
+        <div>
+          <%= link_to edit_patient_treatment_path(@patient,treatment) do %>
+          <i class="fas fa-edit text-warning fs-5 mx-2"></i>
+          <%end%>
+          <%= link_to patient_treatment_path(@patient,treatment), method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa-solid fa-trash text-danger fs-5 mx-2"></i>
+          <%end%>
         </div>
       </div>
+      </>
     </div>
   </div>
 </div>
-
+    <%#= treatment.total( treatment) %>
 <style>
   a:link {
     text-decoration: none !important;

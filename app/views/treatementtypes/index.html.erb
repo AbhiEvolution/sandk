@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Treatementtypes</h1>
+
+<div id="treatementtypes">
+  <% @treatementtypes.each do |treatementtype| %>
+    <%= render treatementtype %>
+    <p>
+      <%= link_to "Show this treatementtype", treatementtype %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New treatementtype", new_treatementtype_path %>

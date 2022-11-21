@@ -1,12 +1,14 @@
 <div class="container mt-3">
   <%= form_with model: [@patient, @treatment] do |form| %>
   <div>
-    <%= form.select :typeoftreatement, [ 'RCT','Extraction','Scaling','Crown/Bridge', ], :prompt => 'Type of treatement', :class=>'form-select' %>
+    <%= form.label :Type_of_treatement %><br>
+    <%= form.select :typeoftreatement, Treatementtype.all.map(&:name), {prompt:"Choose Treatment"}%>
   </div>
   <br />
-  <div>
+  <div class="select">
     <%= form.label :teeth %><br>
-    <%= form.text_field :teeth,class: 'form-control shadow-lg' %>
+    <%= form.select :quadrant, [ "1","2","3","4","5","6","7","8" ], :prompt => 'Quadrant'%>
+    <%= form.select :teeth, [ "1","2","3","4","5","6","7","8" ], :prompt => 'Teeth' %>
   </div>
   <br />
   <div>
@@ -16,7 +18,12 @@
   <br />
   <div>
     <%= form.label :next_appointment %><br>
-    <%= form.date_field :nextappointment,class: 'form-control shadow-lg' %>
+    <%= form.datetime_select :nextappointment,class: 'form-control shadow-lg' %>
+  </div>
+  <br />
+  <div>
+    <%= form.label :deposite %><br>
+    <%= form.number_field :deposite ,class: 'form-control shadow-lg' %>
   </div>
   <br />
   <p>
@@ -25,6 +32,7 @@
   <% end %>
   <%= link_to "Back", patient_path(@patient), class:"btn btn-secondary"%>
 </div>
+
 <style>
   #treatment_typeoftreatement {
     display: block;
@@ -37,5 +45,49 @@
     background-color: #fff;
     border: 1px solid #ced4da;
     border-radius: 0.375rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  }
+
+  #treatment_nextappointment_1i,
+  #treatment_nextappointment_3i,
+  #treatment_nextappointment_4i,
+  #treatment_nextappointment_5i {
+    display: inline-block;
+    width: 10%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  }
+
+  #treatment_nextappointment_2i {
+    display: inline-block;
+    width: 15%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  }
+  div.select>select {
+    width: 49.5%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
   }
 </style>

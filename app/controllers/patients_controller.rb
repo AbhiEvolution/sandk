@@ -1,18 +1,19 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_patient, only: [:show, :edit, :update,:destroy]
-  before_action :set_user, only: [:show, :edit, :update,:destroy]
+  before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pagy, @patients = pagy(current_user.patients, items: 10)
+    @pagy, @patients = pagy_countless(current_user.patients.order(created_at: :desc), items: 10)
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   def search
-    # Patient.where("patients.name LIKE ?", ["%#{a}%"])
-    #  @patients=Patient.where("patients.name LIKE ?", "%"  + params[:q] +  "%")
     @query = params[:query]
-    @patients=Patient.where("patients.name LIKE ?",["%#{@query}%"])
-    # render "index"
+    @patients = Patient.where("patients.name LIKE ?", ["%#{@query}%"])
   end
 
   def new
@@ -20,7 +21,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @treatment = @patient.treatments.order("created_at ASC")
+    @treatment = @patient.treatments.order("created_at DESC")
   end
 
   def create
@@ -36,12 +37,6 @@ class PatientsController < ApplicationController
   def edit
   end
 
-  def destroy
-    @patient.destroy
-    flash[:notice] = "patient was destroyed successfully!"
-    redirect_to patients_path
-  end
-
   def update
     if @patient.update(patient_params)
       flash[:notice] = "patient was updated successfully!"
@@ -51,10 +46,16 @@ class PatientsController < ApplicationController
     end
   end
 
+  def destroy
+    @patient.destroy
+    flash[:notice] = "patient was destroyed successfully!"
+    redirect_to patients_path
+  end
+
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :age, :address, :phone, :deposite, :balance, :user_id)
+    params.require(:patient).permit(:name, :age, :address, :phone, :cost, :user_id)
   end
 
   def set_patient
