@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_015732) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_065100) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_21_015732) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "balance"
   end
 
   create_table "treatementtypes", force: :cascade do |t|

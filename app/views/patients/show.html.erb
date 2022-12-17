@@ -14,7 +14,7 @@
       <span class="badge text-bg-info fs-6"> Deposite: Rs.<%= @patient.total_deposite %></span>
     </td>
     <td>
-      <span class="badge text-bg-info fs-6"> Balance: Rs.<%= @patient.total_balance(@patient) %></span>
+      <span class="badge text-bg-info fs-6"> Balance: Rs.<%= @patient.balance%></span>
     </td>
     <td>
       <%= link_to "Add Appointment", new_patient_treatment_path(@patient), class:"badge text-bg-info fs-6"  %>
@@ -26,7 +26,6 @@
   <h1 class="text-center py-4  text-color-blue">Treatement</h1>
 </div>
 <div class="container">
-  <%= link_to "Back to Patients", patients_path, class:"btn btn-secondary" %>
   <%= link_to "Add Treatement Type",new_treatementtype_path, class:"btn btn-secondary"%>
   <% @patient.treatments.each do |treatment| %>
   <%= render partial: 'treatments/treatment', locals: {treatment: treatment}%>

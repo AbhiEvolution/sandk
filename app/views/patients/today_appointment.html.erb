@@ -1,0 +1,40 @@
+<div class="bg-primary-gradient mb-3">
+    <h1 class="text-center py-4  text-color-blue">List of Today's Appointment</h1>
+</div>
+<div class="container">
+    <table class="table  table-striped table-bordered border-dark">
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Treatment </th>
+            <th scope="col">Today Appointment</th>
+            <th scope="col">Action</th>
+        </tr>
+        <% count = 1 %>
+        <% @treatment.each do |treatment| %>
+        <tr>
+            <td><%= count %></td>
+            <td><%= treatment.patient.name %></td>
+            <td><%= treatment.typeoftreatement %></td>
+            <td><%= treatment.nextappointment.strftime(' (%H:%M) %d-%m-%Y') %></td>
+            <td><%= link_to "show", patient_path(treatment.patient) %></td>
+        </tr>
+        <% count = count + 1 %>
+        <% end %>
+    </table>
+</div>
+<div class="container-fluid bg-primary-gradient ">
+    <div class="row justify-content-center">
+        <h1 class="text-color-blue text-center ">Select Date</h1>
+
+        <div class="col-10   text-center mx-1 p-3 mb-5">
+            <%=form_with  url: '/patients/today_appointment' do |form|%>
+
+            <%=form.date_field :date, style:'border-radius:6px;padding:2px'  %>
+
+            <%=form.submit 'submit' %>
+            <%end%>
+        </div>
+
+    </div>
+</div>

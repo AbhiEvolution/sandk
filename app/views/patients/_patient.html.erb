@@ -8,7 +8,7 @@
         <td>
             <div class="text-center">
                 <span class="border-end border-3 border-dark px-2 ">Rs. <%= patient.cost %> - Rs.<%= patient.total_deposite %></span>
-                <span class="px-2">Rs.<%= patient.total_balance(patient) %></span>
+                <span class="px-2">Rs.<%= patient.balance %></span>
             </div>
         </td>
         <td><%= link_to "Show",patient  %> | <%=link_to "Edit ", edit_patient_path(patient)%> |

@@ -11,6 +11,15 @@ class PatientsController < ApplicationController
     end
   end
 
+  def today_appointment
+    if params[:date].present?
+      date = params[:date]
+      @treatment = Treatment.where("nextappointment LIKE ?", ["%#{date}%"])
+    else
+      @treatment = Treatment.where(nextappointment: Date.today.all_day)
+    end
+  end
+
   def search
     @query = params[:query]
     @patients = Patient.where("patients.name LIKE ?", ["%#{@query}%"])
@@ -55,7 +64,7 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :age, :address, :phone, :cost, :user_id)
+    params.require(:patient).permit(:name, :age, :address, :phone, :cost, :balance, :user_id)
   end
 
   def set_patient

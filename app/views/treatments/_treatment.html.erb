@@ -18,7 +18,7 @@
         </div>
         <div class="text-dark">
           <strong>Next Appointment:</strong>
-          <%= treatment.nextappointment %>
+          <%= treatment.nextappointment.strftime(' (%H:%M) %d-%m-%Y') %>
         </div>
       </div>
       <div class="text-dark border border-3 p-2 rounded mt-3">
@@ -27,6 +27,7 @@
       </div>
       <%end%>
       <hr>
+        <%# = edit_method(@patient,treatment)%>
       <div class="d-flex justify-content-between">
         <div>
           <strong class="text-dark">Date:</strong>

@@ -3,9 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root "page#home"
   resources :patients do
-    # collection do
-    #   post :index
-    # end
+    get :today_appointment, on: :collection
+    post :today_appointment,  on: :collection
     resources :treatments
   end
   get "search", to: "patients#search"
